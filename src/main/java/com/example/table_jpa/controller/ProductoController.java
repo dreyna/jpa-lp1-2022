@@ -4,7 +4,10 @@
  */
 package com.example.table_jpa.controller;
 
+import com.example.table_jpa.serviceImpl.ProductoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/prod")
 public class ProductoController {
+    @Autowired
+    private ProductoService productoService;
+    
     @GetMapping("/all")
-    public String index(){
+    public String index(Model model){
+       model.addAttribute("productos", productoService.readAll());
         return "producto/listprod";
     }
 }

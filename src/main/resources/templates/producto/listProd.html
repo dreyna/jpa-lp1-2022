@@ -14,7 +14,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">IDt</th>
                         <th scope="col">CATEGORIA</th>
                         <th scope="col">PRODUCTO</th>
@@ -24,15 +23,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td><!-- comment -->
-                        <td>@mdo</td>
+                    <tr th:each="prod :${productos}">
+                        <td th:text="${prod.id}"></td>
+                        <td th:text="${prod.nombre}"></td>
+                        <td th:text="${prod.precio}"></td>
+                        <td th:text="${prod.cantidad}"></td>
+                        <td th:text="${prod.categoria.nombre}"></td>
                     </tr>                   
                 </tbody>
             </table>
